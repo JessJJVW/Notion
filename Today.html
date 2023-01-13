@@ -2,37 +2,65 @@
 <html>
   <head>
     <title>Dynamic Icon</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    #icon {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    #calendar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    }
+
+    #month, #day, #year {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    text-align: center;
+    }
+    </style>
   </head>
   <body>
     <div id="icon">
-      <div id="date"></div>
+        <div id="calendar">
+            <div id="month"></div>
+            <div id="day"></div>
+            <div id="year"></div>
+        </div>
     </div>
-    <script src="script.js"></script>
+    <script>
+    const month = document.getElementById("month");
+    const day = document.getElementById("day");
+    const year = document.getElementById("year");
+    const currentDate = new Date();
+
+    const monthOptions = { month: "short" };
+    const dayOptions = { day: "numeric" };
+    const yearOptions = { year: "numeric" };
+
+    month.innerHTML = currentDate.toLocaleDateString("en-US", monthOptions);
+    day.innerHTML = currentDate.toLocaleDateString("en-US", dayOptions);
+    year.innerHTML = currentDate.toLocaleDateString("en-US", yearOptions);
+      setInterval(function(){
+    const month = document.getElementById("month");
+    const day = document.getElementById("day");
+    const year = document.getElementById("year");
+    const currentDate = new Date();
+    const monthOptions = { month: "short" };
+    const dayOptions = { day: "numeric" };
+    const yearOptions = { year: "numeric" };
+    month.innerHTML = currentDate.toLocaleDateString("en-US", monthOptions);
+    day.innerHTML = currentDate.toLocaleDateString("en-US", dayOptions);
+    year.innerHTML = currentDate.toLocaleDateString("en-US", yearOptions);
+}, 86400000);
+    </script>
   </body>
 </html>
-
-#icon {
-  width: 100px;
-  height: 100px;
-  background-color: #3498db;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#date {
-  color: white;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-const date = document.getElementById("date");
-const currentDate = new Date();
-const options = {
-  day: "numeric",
-  month: "short",
-  year: "numeric"
-};
-date.innerHTML = currentDate.toLocaleDateString("en-US", options);
