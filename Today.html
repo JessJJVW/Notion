@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamic Icon</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id="icon">
+      <div id="date"></div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+#icon {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#date {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+const date = document.getElementById("date");
+const currentDate = new Date();
+const options = {
+  day: "numeric",
+  month: "short",
+  year: "numeric"
+};
+date.innerHTML = currentDate.toLocaleDateString("en-US", options);
