@@ -1,4 +1,4 @@
-#warningBox {
+#warningBox * {
     color: #aa0000;
     display: none;
 }
