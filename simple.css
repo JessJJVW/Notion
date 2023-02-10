@@ -1,3 +1,4 @@
-#warningBox{
-  display: none;
+element.style {
+    color: #aa0000;
+    display: none;
 }
